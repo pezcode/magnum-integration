@@ -10,7 +10,7 @@
     Copyright © 2018 Tomáš Skřivan <skrivantomas@seznam.cz>
     Copyright © 2018 Jonathan Hale <squareys@googlemail.com>
     Copyright © 2019 bowling-allie <allie.smith.epic@gmail.com>
-    Copyright © 2022, 2024 Pablo Escobar <mail@rvrs.in>
+    Copyright © 2022, 2024, 2025 Pablo Escobar <mail@rvrs.in>
 
     Permission is hereby granted, free of charge, to any person obtaining a
     copy of this software and associated documentation files (the "Software"),
@@ -400,16 +400,32 @@ class MAGNUM_IMGUIINTEGRATION_EXPORT Context {
         explicit Context(ImGuiContext& context, const Vector2i& size);
 
         /**
-         * @brief TODO
+         * @brief Construct using application sizes and features
+         * @param size                  Size of the user interface to which all
+         *      widgets are positioned
+         * @param application           Application instance from which window
+         *      and framebuffer sizes as well as supported features are taken
          *
-         * Implicitly fetches framebuffer and window size from the application instance
-         * Using this template constructor is preferable as it enables additional features based on given Application capabilities
+         * Compared to @ref Context(const Vector2&, const Vector2i&, const Vector2i&)
+         * this takes window size and framebuffer size from the application
+         * instance and it enables additional features depending on the given
+         * Application capabilities.
          */
         template<class Application> explicit Context(const Vector2& size, const Application& application);
 
         /**
-         * @brief TODO
+         * @brief Construct from an existing context, using application sizes
+         *      and features
+         * @param context               Existing ImGui context
+         * @param size                  Size of the user interface to which all
+         *      widgets are positioned
+         * @param application           Application instance from which window
+         *      and framebuffer sizes as well as supported features are taken
          *
+         * Compared to @ref Context(ImGuiContext&, const Vector2&, const Vector2i&, const Vector2i&)
+         * this takes window size and framebuffer size from the application
+         * instance and it enables additional features depending on the given
+         * Application capabilities.
          */
         template<class Application> explicit Context(ImGuiContext& context, const Vector2& size, const Application& application);
 
